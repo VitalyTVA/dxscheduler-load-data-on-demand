@@ -9,8 +9,11 @@
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling"
-             xmlns:ViewModels="clr-namespace:DXSample.ViewModels"
-             DataContext="{dxmvvm:ViewModelSource ViewModels:SchedulingViewModel}">
+             xmlns:etc="clr-namespace:EventToCommandShowCases;assembly=EventToCommandShowCases"
+             xmlns:ViewModels="clr-namespace:DXSample.ViewModels">
+    <UserControl.DataContext>
+        <ViewModels:SchedulingViewModel/>
+    </UserControl.DataContext>
     <dxlc:LayoutControl Padding="0" Orientation="Vertical">
         <dxsch:SchedulerControl x:Name="scheduler"
                                 ActiveViewIndex="0"
@@ -19,10 +22,10 @@
                                 ShowDateNavigationPanel="True"
                                 WorkDays="WorkDays,Saturday"
                                 WorkTime="06:00:00-23:00:00"
-                                AppointmentAdded="{DXEvent 'ProcessChanges(@args)'}"
-                                AppointmentEdited="{DXEvent 'ProcessChanges(@args)'}"
-                                AppointmentRemoved="{DXEvent 'ProcessChanges(@args)'}"
-                                AppointmentRestored="{DXEvent 'ProcessChanges(@args)'}"
+                                AppointmentAdded="{etc:EventToCommand ProcessChangesCommand}"
+                                AppointmentEdited="{etc:EventToCommand ProcessChangesCommand}"
+                                AppointmentRemoved="{etc:EventToCommand ProcessChangesCommand}"
+                                AppointmentRestored="{etc:EventToCommand ProcessChangesCommand}"
                                 >
             <dxsch:SchedulerControl.RibbonActions>
                 <dxb:InsertAction ContainerName="{x:Static dxsch:DefaultBarItemNames.RibbonControl}">
@@ -40,8 +43,8 @@
                 </dxb:InsertAction>
             </dxsch:SchedulerControl.RibbonActions>
             <dxsch:SchedulerControl.DataSource>
-                <dxsch:DataSource FetchAppointments="{DXEvent 'FetchAppointments(@args)'}"
-                                  CreateSourceObject="{DXEvent 'CreateSourceObject(@args)'}"
+                <dxsch:DataSource FetchAppointments="{etc:EventToCommand FetchAppointmentsCommand}"
+                                  CreateSourceObject="{etc:EventToCommand CreateSourceObjectCommand}"
                                   ResourcesSource="{Binding Resources}"
                                   Name="dataSource" FetchRange="1">
                     <dxsch:DataSource.AppointmentMappings>

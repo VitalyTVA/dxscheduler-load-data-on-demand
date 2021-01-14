@@ -1,32 +1,41 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.Native;
 using DevExpress.Xpf.Scheduling;
 using DXSample.Data;
 
 namespace DXSample.ViewModels {
-    public class SchedulingViewModel {
+    public class SchedulingViewModel : EventToCommandShowCases.ViewModelBase {
         public SchedulingViewModel() {
             using(var dbContext = new SchedulingContext()) {
                 Resources = dbContext.ResourceEntities.ToList();
             }
         }
         public virtual List<ResourceEntity> Resources { get; set; }
-        public void CreateSourceObject(CreateSourceObjectEventArgs args) {
-            if(args.ItemType == ItemType.AppointmentItem)
-                args.Instance = new AppointmentEntity();
+        [Command]
+        public object CreateSourceObject(ItemType itemType) {
+            if(itemType == ItemType.AppointmentItem)
+                return new AppointmentEntity();
+            return null;
         }
-        public void FetchAppointments(FetchDataEventArgs args) {
+
+        [Command]
+        public object[] FetchAppointments(Expression<Func<AppointmentEntity, bool>> fetchExpression) {
             using(var dbContext = new SchedulingContext()) {
-                args.Result = dbContext.AppointmentEntities.Where(args.GetFetchExpression<AppointmentEntity>()).ToArray();
+                return dbContext.AppointmentEntities.Where(fetchExpression).ToArray();
             }
         }
-        public void ProcessChanges(AppointmentCRUDEventArgs args) {
+
+        [Command]
+        public void ProcessChanges(IList<AppointmentEntity> addToSource, IList<AppointmentEntity> updateInSource, IList<AppointmentEntity> deleteFromSource) {
             using(var dbContext = new SchedulingContext()) {
-                dbContext.AppointmentEntities.AddRange(args.AddToSource.Select(x => (AppointmentEntity)x.SourceObject));
-                foreach(var appt in args.UpdateInSource.Select(x => (AppointmentEntity)x.SourceObject))
+                dbContext.AppointmentEntities.AddRange(addToSource);
+                foreach(var appt in updateInSource)
                     AppointmentEntityHelper.CopyProperties(appt, dbContext.AppointmentEntities.Find(appt.Id));
-                foreach(var appt in args.DeleteFromSource.Select(x => (AppointmentEntity)x.SourceObject))
+                foreach(var appt in deleteFromSource)
                     dbContext.AppointmentEntities.Remove(dbContext.AppointmentEntities.Find(appt.Id));
                 dbContext.SaveChanges();
             }

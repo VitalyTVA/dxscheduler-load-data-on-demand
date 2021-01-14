@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -44,68 +44,71 @@
     <PackageReference Include="System.Data.SQLite.EF6">
       <Version>1.0.113</Version>
     </PackageReference>
-    <Reference Include="DevExpress.Data.Desktop.v20.2">
+    <Reference Include="DevExpress.Data.Desktop.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Data.v20.2">
+    <Reference Include="DevExpress.Data.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Images.v20.2">
+    <Reference Include="DevExpress.Images.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Mvvm.v20.2">
+    <Reference Include="DevExpress.Mvvm.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Core.v20.2">
+    <Reference Include="DevExpress.Xpf.Core.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Printing.v20.2.Core">
+    <Reference Include="DevExpress.Printing.v21.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Docking.v20.2">
+    <Reference Include="DevExpress.Xpf.Docking.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Layout.v20.2.Core">
+    <Reference Include="DevExpress.Xpf.Layout.v21.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Printing.v20.2">
+    <Reference Include="DevExpress.Xpf.Printing.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Grid.v20.2">
+    <Reference Include="DevExpress.Xpf.Grid.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Grid.v20.2.Core">
+    <Reference Include="DevExpress.Xpf.Grid.v21.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.LayoutControl.v20.2">
+    <Reference Include="DevExpress.Xpf.LayoutControl.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Ribbon.v20.2">
+    <Reference Include="DevExpress.Xpf.Ribbon.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Scheduling.v20.2">
+    <Reference Include="DevExpress.Xpf.Scheduling.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v20.2">
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v20.2">
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Themes.VS2017Blue.v20.2">
+    <Reference Include="DevExpress.Xpf.Themes.VS2017Blue.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Themes.VS2017Dark.v20.2">
+    <Reference Include="DevExpress.Xpf.Themes.VS2017Dark.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Themes.VS2017Light.v20.2">
+    <Reference Include="DevExpress.Xpf.Themes.VS2017Light.v21.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.XtraScheduler.v20.2.Core">
+    <Reference Include="DevExpress.XtraScheduler.v21.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.XtraScheduler.v20.2.Core.Desktop">
+    <Reference Include="DevExpress.XtraScheduler.v21.1.Core.Desktop">
       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="EventToCommandShowCases">
+      <HintPath>..\..\..\..\2021.1\XPF\DevExpress.Xpf.Grid\Samples\EventToCommandShowCases\bin\Debug\EventToCommandShowCases.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
